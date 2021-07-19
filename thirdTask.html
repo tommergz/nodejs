@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Third</title>
+  </head>
+  <body>
+    <script>
+
+      function crasher(a) {
+        delete a.bla;
+      }
+
+      const a = {} // теперь у a есть свойство bla,
+                  // отнаследованное от b
+
+      const b = {
+        bla: 'bla'
+      }
+
+      a.__proto__ = b
+
+      // начало блока изменений
+      crasher(a);
+      // конец блока изменений
+
+      console.log(a.bla);
+      console.log(b);
+
+    </script>
+  </body>
+</html>

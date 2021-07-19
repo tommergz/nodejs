@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>First</title>
+  </head>
+  <body>
+    <script>
+
+      class Game {
+        constructor(ABS, Traction, Stability) {
+          this.ABS = null
+          this.Traction = null
+          this.Stability = null
+        }
+
+        checkData = (num) => {
+          if (5 > num > 0) {
+            return
+          }
+          console.log('Each prop can be chanched only in the range from 1 to 5.');
+        }
+
+        setAbs(num) {
+          this.checkData(num)
+          this.ABS = num
+          console.log(`ABS:${num}`)
+        }
+
+        setTraction(num) { 
+          this.checkData(num)
+          this.Traction = num
+          onsole.log(`Traction Control:${num}`) 
+        }
+
+        setStability(num) { 
+          this.checkData(num)
+          this.Stability = num
+          console.log(`Stability Control:${num}`) 
+        }
+
+        getCharacteristics() {
+          console.log('Your car characteristics:')
+          console.log(`ABS:${this.ABS}`)
+          console.log(`Traction Control:${this.Traction}`) 
+          console.log(`Stability Control:${this.Stability}`) 
+        }
+
+      }
+
+      class Beginner extends Game {
+        constructor(ABS, Traction, Stability) {
+          super()
+          this.ABS = 3
+          this.Traction = 3
+          this.Stability = 3
+        }
+      } 
+
+      class GoodDriver extends Game {
+        constructor(ABS, Traction, Stability) {
+          super()
+          this.ABS = 3
+          this.Traction = 3
+          this.Stability = 3
+        }
+      } 
+
+      class Maniac extends Game {
+        constructor(ABS, Traction, Stability) {
+          super()
+          this.ABS = 1
+          this.Traction = 1
+          this.Stability = 1
+        }
+      }
+
+      const newPlayer = new Maniac()
+      newPlayer.getCharacteristics()
+
+      newPlayer.setAbs(4)
+      newPlayer.getCharacteristics()
+
+    </script>
+  </body>
+</html>
