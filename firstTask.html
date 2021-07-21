@@ -14,28 +14,31 @@
         }
 
         checkData = (num) => {
-          if (5 > num > 0) {
-            return
+          if (6 > num && num > 0) {
+            return true
           }
           console.log('Each prop can be chanched only in the range from 1 to 5.');
         }
 
         setAbs(num) {
-          this.checkData(num)
-          this.ABS = num
-          console.log(`ABS:${num}`)
+          if (this.checkData(num)) {
+            this.ABS = num
+            console.log(`ABS:${num}`)
+          }
         }
 
         setTraction(num) { 
-          this.checkData(num)
-          this.Traction = num
-          console.log(`Traction Control:${num}`) 
+          if (this.checkData(num)) {
+            this.Traction = num
+            console.log(`Traction Control:${num}`) 
+          }  
         }
 
         setStability(num) { 
-          this.checkData(num)
-          this.Stability = num
-          console.log(`Stability Control:${num}`) 
+          if (this.checkData(num)) {
+            this.Stability = num
+            console.log(`Stability Control:${num}`) 
+          }  
         }
 
         getCharacteristics() {
@@ -50,9 +53,9 @@
       class Beginner extends Game {
         constructor() {
           super()
-          this.ABS = 3
-          this.Traction = 3
-          this.Stability = 3
+          this.ABS = 5
+          this.Traction = 5
+          this.Stability = 5
         }
       } 
 
@@ -77,7 +80,7 @@
       const newPlayer = new Maniac()
       newPlayer.getCharacteristics()
 
-      newPlayer.setAbs(4)
+      newPlayer.setAbs(5)
       newPlayer.getCharacteristics()
 
     </script>
