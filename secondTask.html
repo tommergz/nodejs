@@ -6,8 +6,7 @@
   <body>
     <script>
 
-      function counter() {
-        let count = 2
+      function counter(count) {
         let inc = 2
         console.log(count);
         return function() {
@@ -27,19 +26,10 @@
         }
       }
 
-      const newCounter = counter()
-      console.log(newCounter())
-      console.log(newCounter())
-      console.log(newCounter())
-      console.log(newCounter())
-      console.log(newCounter())
-      console.log(newCounter())
-      console.log(newCounter()) // 1
-      console.log(newCounter()) // 4
-      console.log(newCounter()) // 7
-      console.log(newCounter()) // 0
-      console.log(newCounter()) // 1
-      console.log(newCounter()) // 2
+      const newCounter = counter(2)
+      for (let i = 0; i < 12; i++) {
+        console.log(newCounter())
+      }
 
     </script>
   </body>

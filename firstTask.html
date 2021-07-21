@@ -29,7 +29,7 @@
         setTraction(num) { 
           this.checkData(num)
           this.Traction = num
-          onsole.log(`Traction Control:${num}`) 
+          console.log(`Traction Control:${num}`) 
         }
 
         setStability(num) { 
@@ -48,7 +48,7 @@
       }
 
       class Beginner extends Game {
-        constructor(ABS, Traction, Stability) {
+        constructor() {
           super()
           this.ABS = 3
           this.Traction = 3
@@ -57,7 +57,7 @@
       } 
 
       class GoodDriver extends Game {
-        constructor(ABS, Traction, Stability) {
+        constructor() {
           super()
           this.ABS = 3
           this.Traction = 3
@@ -66,7 +66,7 @@
       } 
 
       class Maniac extends Game {
-        constructor(ABS, Traction, Stability) {
+        constructor() {
           super()
           this.ABS = 1
           this.Traction = 1
