@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>First</title>
+  </head>
+  <body>
+    <script>
+
+      const bulbs = (lights, arr) => {
+        let lightsArr = []
+        while (arr.length) {
+          let i = arr[0]
+          let count = i 
+          while (i < lights + 1) {
+            if (lightsArr[i] !== true) {
+              lightsArr[i] = true
+            } else {
+              lightsArr[i] = false
+            }
+            i += count
+          }
+          arr.shift()
+        }
+        let workingLights = lightsArr.reduce((sum, current) => sum += current ? 1 : 0, 0)
+        return workingLights
+      }
+
+      console.log(bulbs(20, [2,3,8]))
+      console.log(bulbs(172, [19, 2, 7, 13, 40, 23, 16, 1, 45, 9]));
+    </script>
+  </body>
+</html>

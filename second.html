@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SSSSS</title>
+  </head>
+  <body>
+      <script>
+
+        const generateVolumes = (arr, k) => {
+          let min = Infinity
+
+          const repeat = (arr, n, toms) => {
+            for (let i = 1; i < arr.length + 1;i ++) {
+              let arrCopy = [...arr]
+
+              let newArr = n !== 1 ? 
+                arrCopy.splice(0, i) :
+                [...arrCopy]
+              let tom = newArr.reduce((sum, current) => sum + current, 0)
+              let newToms = [...toms]
+              newToms.push(tom)
+              if (n === 1) {
+                let max = [...newToms].sort((a,b) => b-a)[0]
+                min = min > max ? max : min
+                break
+              }
+              repeat(arrCopy, n - 1, [...newToms])
+            }
+          }
+
+
+            repeat([...arr], k, [])
+          
+          console.log(min)
+        }
+
+        generateVolumes([1, 2, 1, 1, 5, 1, 4, 2, 1, 1], 5)
+        generateVolumes([1, 2, 1], 2)
+        generateVolumes([1, 2, 1, 1], 3)
+      </script>
+    </body>
+</html>
