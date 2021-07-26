@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Fifth</title>
+</head>
+
+<body>
+  <script>
+    const findKayakAmount = (arr, d) => {
+      arr.sort((a, b) => a - b)
+      let amount = 0
+      if (arr.length < 1) return arr.length
+        for (let i = 0; i < arr.length - 1; i++) {
+          let sum = (arr[0] + arr[arr.length - 1 - i])
+          if (sum <= d) {
+            arr.splice(0, 1)
+            arr.splice(arr.length - 1 - i, 1)
+            amount += 1
+            i = -1
+          }
+
+          for (let i = 0; i < arr.length; i++) {
+            if ((sum + arr[i]) <= d) {
+              sum += arr[i]
+              arr.splice(i, 1)
+              i -= 1
+            }
+          }
+        }
+        amount += arr.length
+      console.log(amount)
+    }
+
+    findKayakAmount([50, 120, 74, 60, 100, 82], 135); // 4
+    findKayakAmount([10, 10, 20, 30, 100, 100, 100], 135); // 3
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Third</title>
+  </head>
+  <body>
+    <script>
+      const copy = (amount, ...prints) => {
+        let seconds = 0
+        let workingPrints = []
+        let copies = 1
+        let busyCopies = 0
+        prints.sort((a, b) => a - b)
+        while (amount > 0) {
+          seconds += 1
+          
+            for (let i = 0; i < prints.length; i++) {
+              if (!workingPrints[i]) {
+                workingPrints[i] = prints[i]
+                busyCopies += 1
+              }
+              if ((copies - busyCopies) <= 0) break
+            }
+          
+
+            workingPrints = workingPrints.map(print => {
+              if (print - 1 === 0) {
+                copies += 1
+                busyCopies -= 1
+                amount -= 1
+              }
+              return print - 1
+            })
+        }
+        console.log(seconds);
+      }
+      
+      copy(4, 1, 1)
+      copy(5, 1, 2)
+    </script>
+  </body>
+</html>
